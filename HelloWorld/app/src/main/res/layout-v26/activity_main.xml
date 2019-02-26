@@ -6,6 +6,8 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <!-- a custom ID is set for each elements to call them in the code with "R.id.idname" -->
+    <!-- text uses informations from strings.xml -->
     <TextView
         android:id="@+id/title"
         android:layout_width="wrap_content"
@@ -35,6 +37,7 @@
         app:layout_constraintTop_toBottomOf="@+id/title"
         tools:ignore="LabelFor" />
 
+    <!-- onClick anction on the button, call "getName" method from code -->
     <Button
         android:id="@+id/display"
         android:onClick="getName"
@@ -49,6 +52,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/name" />
 
+    <!-- onClick anction on the button, call "handleClear" method from code -->
     <Button
         android:id="@+id/clear"
         android:onClick="handleClear"
@@ -73,4 +77,5 @@
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/title" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">ex2</string>
+    <string name="label">Adresse email : </string>
+    <string name="button">SEND</string>
+</resources>
