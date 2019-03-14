@@ -55,8 +55,7 @@ public class MainActivity extends AppCompatActivity {
         title.setText(R.string.title);
     }
 
-    // tests to visualize Android lifecycle
-
+    // tests to visualize Android lifecycle, Override all lifecycle callback methods
     @Override
     protected void onStart()  {
         Log.d(TAG, "onStart called");

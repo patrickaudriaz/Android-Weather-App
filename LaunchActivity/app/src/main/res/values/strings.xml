@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">LaunchActivity</string>
+    <string name="up_name">SimpleUpActivity</string>
+    <string name="peer_name">PeerActivity</string>
+    <string name="LaunchSimpleUpButton">Start SimpleUp Activity</string>
+    <string name="LaunchAnotherPeerActivity">Launch another PeerActivity</string>
+    <string name="Description">By hitting the button, you will launch another peer activity. By pressing up, you will return to the home activity</string>
+    <string name="PeerCount">Peer count :</string>
+    <string name="LaunchPeerButton">Start Peer Activity</string>
+</resources>
