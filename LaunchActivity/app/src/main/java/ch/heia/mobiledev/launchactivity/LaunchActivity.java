@@ -17,7 +17,7 @@ public class LaunchActivity extends AppCompatActivity {
     // called when clicking on "launch_simple_up_button" button
     // (View view) as parameters to make it accessible from activity_main.xml
     private void onLaunchUpActivity() {
-        Log.d(TAG, "--> Button \"launch_simple_up_button\" clicked");
+        Log.d(TAG, "----> Button \"launch_simple_up_button\" clicked");
         Intent intent = new Intent(this, SimpleUpActivity.class);
         startActivity(intent);
     }
@@ -25,7 +25,7 @@ public class LaunchActivity extends AppCompatActivity {
     // called when clicking on "launch_simple_up_button" button
     // (View view) as parameters to make it accessible from activity_main.xml
     private void onLaunchPeerActivity() {
-        Log.d(TAG, "--> Button \"launch_peer_button\" clicked");
+        Log.d(TAG, "----> Button \"launch_peer_button\" clicked");
         Intent intent = new Intent(this, PeerActivity.class);
         Bundle b = new Bundle();
         b.putInt("EXTRA_PEER_COUNT", 1); //Your id
@@ -37,7 +37,7 @@ public class LaunchActivity extends AppCompatActivity {
     // called at application startup or after the app has been killed, must be overridden
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        Log.d(TAG, "------------------------------------");
+        Log.d(TAG, "-----------------LaunchActivity-------------------");
         Log.d(TAG, "onCreate called");
         super.onCreate(savedInstanceState);
 

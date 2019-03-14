@@ -15,7 +15,7 @@ public class SimpleUpActivity extends AppCompatActivity {
     // Navigate Up to Parent Activity
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        Log.d(TAG, "--> Back...");
+        Log.d(TAG, "----> Back...");
         switch (item.getItemId()) {
             // Respond to the action bar's Up/Home button
             case android.R.id.home:
@@ -28,7 +28,7 @@ public class SimpleUpActivity extends AppCompatActivity {
     // called at application startup or after the app has been killed, must be overridden
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        Log.d(TAG, "------------------------------------");
+        Log.d(TAG, "-----------------SimpleUpActivity-------------------");
         Log.d(TAG, "onCreate called");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_simple_up);

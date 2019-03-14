@@ -33,8 +33,7 @@
                 android:value="ch.heia.mobiledev.launchactivity.LaunchActivity" />
         </activity>
         <activity android:name=".LaunchActivity"
-            android:launchMode="singleTop"
-            >
+            android:launchMode="singleTop">
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
