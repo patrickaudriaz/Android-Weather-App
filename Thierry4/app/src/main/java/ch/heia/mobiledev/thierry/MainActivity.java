@@ -2,6 +2,7 @@ package ch.heia.mobiledev.thierry;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.InputType;
 import android.util.Log;
@@ -110,11 +111,13 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_settings) {
-            // Handle the camera action
-        } else if (id == R.id.nav_bar_search) {
-
+            Log.d(TAG, "---> Button \"nav_settings\" clicked");
+            Intent intent = new Intent(this, SettingsActivity.class);
+            startActivity(intent);
         } else if (id == R.id.nav_about) {
-
+            Log.d(TAG, "---> Button \"nav_about\" clicked");
+            Intent intent = new Intent(this, AboutActivity.class);
+            startActivity(intent);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

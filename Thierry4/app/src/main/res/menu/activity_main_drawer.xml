@@ -6,17 +6,26 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_home"
+            android:checkable="false"
+            android:enabled="true"
             android:icon="@drawable/ic_home"
-            android:title="@string/nav_home" />
+            android:title="@string/nav_home"
+            android:visible="true" />
         <item
             android:id="@+id/nav_settings"
+            android:checkable="false"
+            android:enabled="true"
             android:icon="@drawable/ic_menu_manage"
-            android:title="@string/nav_settings" />
+            android:title="@string/nav_settings"
+            android:visible="true" />
         <item
             android:id="@+id/nav_about"
 
+            android:checkable="false"
+            android:enabled="true"
             android:icon="@android:drawable/ic_dialog_info"
-            android:title="@string/nav_about" />
+            android:title="@string/nav_about"
+            android:visible="true" />
 
     </group>
 
