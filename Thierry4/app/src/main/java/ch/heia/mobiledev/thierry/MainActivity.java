@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.NavUtils;
 import android.text.InputType;
 import android.util.Log;
 import android.support.design.widget.NavigationView;
@@ -118,6 +119,7 @@ public class MainActivity extends AppCompatActivity
             Log.d(TAG, "---> Button \"nav_about\" clicked");
             Intent intent = new Intent(this, AboutActivity.class);
             startActivity(intent);
+        } else if(id == R.id.nav_home){
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
