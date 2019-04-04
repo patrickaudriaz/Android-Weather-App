@@ -19,7 +19,7 @@ class NetworkUtils {
   // the defininition depends on each web API
 
   /* example query with correct key
-   * [https://api.openweathermap.org/data/2.5/weather?q=London,uk&APPID=daeecc1588e9812e4eedc9644d47ee8e]
+   * [http://api.openweathermap.org/data/2.5/forecast?q=Fribourg,ch&APPID=daeecc1588e9812e4eedc9644d47ee8e]
    * TODO: build URL with correct data source type and location
    */
 
