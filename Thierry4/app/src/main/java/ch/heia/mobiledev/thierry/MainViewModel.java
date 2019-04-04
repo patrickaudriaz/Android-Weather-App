@@ -4,22 +4,15 @@ import android.arch.lifecycle.LifecycleOwner;
 import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.MutableLiveData;
 import android.arch.lifecycle.ViewModel;
+import android.content.Context;
 import android.util.Log;
-import androidx.lifecycle.LifecycleOwner;
-import androidx.lifecycle.LiveData;
-import androidx.lifecycle.MutableLiveData;
-import androidx.lifecycle.ViewModel;
 
-import ch.heia.mobiledev.thierry.data.database.Entry;
-import ch.heia.mobiledev.thierry.data.network.FetchAsyncTask;
-import ch.heia.mobiledev.thierry.data.network.Response;
 import ch.heia.mobiledev.thierry.database.Entry;
 import ch.heia.mobiledev.thierry.network.FetchAsyncTask;
 import ch.heia.mobiledev.thierry.network.Response;
 import ch.heia.mobiledev.thierry.ui.MainActivity;
 
 public class MainViewModel extends ViewModel {
-  // data members
 
   // used for logging
   private static final String TAG = MainActivity.class.getSimpleName();
@@ -29,9 +22,10 @@ public class MainViewModel extends ViewModel {
 
   // constructor
   public MainViewModel() {
+
   }
 
-  // method called for fetching the data
+      // method called for fetching the data
   public void fetchData(LifecycleOwner lifecycleOwner, String country) {
     // async task used for fetching the data
     FetchAsyncTask fetchAsyncTask = new FetchAsyncTask(country);
