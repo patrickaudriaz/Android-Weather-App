@@ -14,8 +14,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.ListView;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Objects;
 
 import ch.heia.mobiledev.thierry.R;
@@ -28,6 +32,8 @@ public class MainActivity extends AppCompatActivity
     // used for logging
     private static final String TAG = "MainActivity";
 
+    private ListView listView ;
+    private ArrayAdapter<String> listAdapter ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +54,29 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        listView = (ListView)findViewById(R.id.listview_body);
+
+        // Create and populate a List of planet names.
+        String[] planets = new String[] { "Mercury", "Venus", "Earth", "Mars",
+                "Jupiter", "Saturn", "Uranus", "Neptune"};
+        ArrayList<String> planetList = new ArrayList<String>();
+        planetList.addAll( Arrays.asList(planets) );
+
+        // Create ArrayAdapter using the planet list.
+        listAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, planetList);
+
+        // Add more planets. If you passed a String[] instead of a List<String>
+        // into the ArrayAdapter constructor, you must not add more items.
+        // Otherwise an exception will occur.
+        listAdapter.add( "Ceres" );
+        listAdapter.add( "Pluto" );
+        listAdapter.add( "Haumea" );
+        listAdapter.add( "Makemake" );
+        listAdapter.add( "Eris" );
+
+        // Set the ArrayAdapter as the ListView's adapter.
+        listView.setAdapter( listAdapter );
     }
 
     @Override

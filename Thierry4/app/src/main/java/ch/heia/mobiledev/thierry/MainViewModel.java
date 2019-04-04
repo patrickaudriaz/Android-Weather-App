@@ -1,16 +1,22 @@
 package ch.heia.mobiledev.thierry;
 
+import android.arch.lifecycle.LifecycleOwner;
+import android.arch.lifecycle.LiveData;
+import android.arch.lifecycle.MutableLiveData;
+import android.arch.lifecycle.ViewModel;
 import android.util.Log;
-
 import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-import ch.heia.mobiledev.yyy.data.database.Entry;
-import ch.heia.mobiledev.yyy.data.network.FetchAsyncTask;
-import ch.heia.mobiledev.yyy.data.network.Response;
-import ch.heia.mobiledev.yyy.ui.MainActivity;
+import ch.heia.mobiledev.thierry.data.database.Entry;
+import ch.heia.mobiledev.thierry.data.network.FetchAsyncTask;
+import ch.heia.mobiledev.thierry.data.network.Response;
+import ch.heia.mobiledev.thierry.database.Entry;
+import ch.heia.mobiledev.thierry.network.FetchAsyncTask;
+import ch.heia.mobiledev.thierry.network.Response;
+import ch.heia.mobiledev.thierry.ui.MainActivity;
 
 public class MainViewModel extends ViewModel {
   // data members

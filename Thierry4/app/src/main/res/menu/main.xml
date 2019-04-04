@@ -10,4 +10,11 @@
         android:title="Search"
         android:icon="@drawable/ic_search"
         app:showAsAction="always" />
+
+    <item
+        android:id="@+id/menu_refresh"
+        android:title="Refresh"
+        android:icon="@drawable/menu_refresh"
+        app:showAsAction="always"
+        />
 </menu>
