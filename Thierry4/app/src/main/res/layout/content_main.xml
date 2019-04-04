@@ -8,7 +8,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        tools:context=".MainActivity"
+        tools:context=".ui.MainActivity"
         tools:showIn="@layout/app_bar_main">
 
 
@@ -158,7 +158,7 @@
             </LinearLayout>
 
             <TextView
-                android:id="@+id/itemIcon"
+                android:id="@+id/itemIcon2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
@@ -170,8 +170,8 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/itemIcon"
-                android:layout_alignEnd="@+id/itemIcon"
+                android:layout_below="@+id/itemIcon2"
+                android:layout_alignEnd="@+id/itemIcon2"
                 android:layout_marginTop="8dp"
                 android:text="0 °C"
                 android:textSize="22sp" />
@@ -230,7 +230,7 @@
             </LinearLayout>
 
             <TextView
-                android:id="@+id/itemIcon2"
+                android:id="@+id/itemIcon1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
@@ -242,8 +242,8 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/itemIcon2"
-                android:layout_alignEnd="@+id/itemIcon2"
+                android:layout_below="@+id/itemIcon1"
+                android:layout_alignEnd="@+id/itemIcon1"
                 android:layout_marginTop="8dp"
                 android:text="0 °C"
                 android:textSize="22sp" />
@@ -256,7 +256,7 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:paddingBottom="20dp">
 
             <LinearLayout
