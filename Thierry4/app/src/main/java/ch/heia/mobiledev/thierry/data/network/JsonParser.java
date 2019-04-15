@@ -1,4 +1,4 @@
-package ch.heia.mobiledev.thierry.network;
+package ch.heia.mobiledev.thierry.data.network;
 
 import org.json.JSONArray;
 import org.json.JSONException;

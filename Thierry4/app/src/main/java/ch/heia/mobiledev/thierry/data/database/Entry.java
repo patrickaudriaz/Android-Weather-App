@@ -1,4 +1,4 @@
-package ch.heia.mobiledev.thierry.database;
+package ch.heia.mobiledev.thierry.data.database;
 
 
 public class Entry {

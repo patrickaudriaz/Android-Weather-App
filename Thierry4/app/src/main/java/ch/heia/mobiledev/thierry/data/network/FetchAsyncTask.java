@@ -1,4 +1,4 @@
-package ch.heia.mobiledev.thierry.network;
+package ch.heia.mobiledev.thierry.data.network;
 
 import android.os.AsyncTask;
 
