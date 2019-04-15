@@ -1,4 +1,4 @@
-package ch.heia.mobiledev.thierry.network;
+package ch.heia.mobiledev.thierry.data.network;
 
 import android.support.annotation.NonNull;
 import ch.heia.mobiledev.thierry.database.Entry;
