@@ -1,6 +1,7 @@
 package ch.heia.mobiledev.thierry.data.network;
 
 import android.net.Uri;
+import android.util.Log;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -9,7 +10,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Scanner;
 
-class NetworkUtils {
+public class NetworkUtils {
 	// data members
 	// for logging
 	private static final String TAG = NetworkUtils.class.getSimpleName();
@@ -33,7 +34,7 @@ class NetworkUtils {
   // Retrieves the proper URL to query the web API
 	// if you received query parameters from other parts of the application
 	// you must pass these parameters as arguments to this method
-	static URL getUrl() {
+	public static URL getUrl() {
 		return buildUrlWithQueryParameters("Fribourg,ch");
 	}
 
@@ -45,15 +46,27 @@ class NetworkUtils {
 		// build the URL instance based on the Uri instance
 		// and return it to the caller
       
-      Uri builtUri = Uri.parse(API_HOST);
-      
-      builtUri.buildUpon()
-              .appendPath(API_PATH)
-              .appendQueryParameter(XXX_PARAM, location)
-              .appendQueryParameter(XXX_APIID, API_KEY)
-              .build();
+//      Uri builtUri = Uri.parse(API_HOST);
+//
+//      builtUri.buildUpon()
+//              .appendPath(API_PATH)
+//              .appendQueryParameter(XXX_PARAM, location)
+//              .appendQueryParameter(XXX_APIID, API_KEY)
+//              .build();
 			
-      URL builtUrl = new URL(builtUri.toString());
+			Uri.Builder builder = new Uri.Builder();
+			builder.scheme("http")
+							.authority("api.openweathermap.org")
+							.appendPath("data")
+							.appendPath("2.5")
+							.appendPath("forecast")
+							.appendQueryParameter("q", location)
+							.appendQueryParameter("APPID", "daeecc1588e9812e4eedc9644d47ee8e");
+			String myUrl = builder.build().toString();
+			
+      URL builtUrl = new URL(myUrl);
+			
+			Log.d("BuiltURL: ", myUrl);
       
 			return builtUrl;
 		}

@@ -1,4 +1,4 @@
-package ch.heia.mobiledev.thierry;
+/*package ch.heia.mobiledev.thierry;
 
 import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.LiveData;
@@ -48,3 +48,4 @@ public class MainViewModel extends ViewModel {
   }
 
 }
+*/

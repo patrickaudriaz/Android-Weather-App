@@ -1,4 +1,4 @@
-package ch.heia.mobiledev.thierry.data.network;
+/*package ch.heia.mobiledev.thierry.data.network;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -55,3 +55,4 @@ class JsonParser {
     return null;
   }
 }
+*/
