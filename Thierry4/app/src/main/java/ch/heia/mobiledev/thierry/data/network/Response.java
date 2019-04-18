@@ -1,7 +1,7 @@
 package ch.heia.mobiledev.thierry.data.network;
 
-import android.support.annotation.NonNull;
-import ch.heia.mobiledev.thierry.database.Entry;
+import androidx.annotation.NonNull;
+import ch.heia.mobiledev.thierry.data.database.Entry;
 
 public class Response {
   // data members

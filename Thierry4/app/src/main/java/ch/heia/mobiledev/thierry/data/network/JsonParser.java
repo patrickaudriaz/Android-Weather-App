@@ -7,8 +7,8 @@ import org.json.JSONObject;
 import java.time.Instant;
 import java.util.Date;
 
-import ch.heia.mobiledev.thierry.database.Entry;
-import ch.heia.mobiledev.thierry.network.Response;
+import ch.heia.mobiledev.thierry.data.database.Entry;
+import ch.heia.mobiledev.thierry.data.network.Response;
 
 class JsonParser {
   // data members
