@@ -23,11 +23,13 @@ public class NetworkUtils {
 	 * TODO: build URL with correct data source type and location
 	 */
 
-  private static final String XXX_PARAM = "q=";
-  private static final String XXX_APIID = "&APPID=";
+  private static final String XXX_PARAM = "q";
+  private static final String XXX_APIID = "APPID";
 
-	private static final String API_HOST = "http://api.openweathermap.org";
-	private static final String API_PATH = "/data/2.5/forecast";
+	private static final String API_HOST = "api.openweathermap.org";
+	private static final String API_PATH0 = "data";
+	private static final String API_PATH1 = "2.5";
+	private static final String API_PATH2 = "forecast";
   private static final String API_KEY = "daeecc1588e9812e4eedc9644d47ee8e";
 
 
@@ -46,22 +48,14 @@ public class NetworkUtils {
 		// build the URL instance based on the Uri instance
 		// and return it to the caller
 
-//      Uri builtUri = Uri.parse(API_HOST);
-//
-//      builtUri.buildUpon()
-//              .appendPath(API_PATH)
-//              .appendQueryParameter(XXX_PARAM, location)
-//              .appendQueryParameter(XXX_APIID, API_KEY)
-//              .build();
-
 			Uri.Builder builder = new Uri.Builder();
 			builder.scheme("http")
-							.authority("api.openweathermap.org")
-							.appendPath("data")
-							.appendPath("2.5")
-							.appendPath("forecast")
-							.appendQueryParameter("q", location)
-							.appendQueryParameter("APPID", "daeecc1588e9812e4eedc9644d47ee8e");
+							.authority(API_HOST)
+							.appendPath(API_PATH0)
+							.appendPath(API_PATH1)
+							.appendPath(API_PATH2)
+							.appendQueryParameter(XXX_PARAM, location)
+							.appendQueryParameter(XXX_APIID, API_KEY);
 			String myUrl = builder.build().toString();
 
       URL builtUrl = new URL(myUrl);
