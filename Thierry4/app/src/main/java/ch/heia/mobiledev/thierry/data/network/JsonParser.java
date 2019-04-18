@@ -13,12 +13,12 @@ import ch.heia.mobiledev.thierry.data.network.Response;
 public class JsonParser {
     // data members
     // define constant strings used for parsing the JSON response received from the web API
-    private static final String LOCAL = "city";
-    private static final String TEMP = "temperature";
-    private static final String HUM = "humidity";
-    private static final String TIME = "time";
-    private static final String PRES = "pressure";
-    private static final String WIND = "wind";
+    String LOCAL;
+    String TEMP;
+    String HUM;
+    String TIME;
+    String PRES;
+    String WIND;
 
 
     // method called for parsing the response
@@ -38,10 +38,9 @@ public class JsonParser {
     // this method receives the JSON object representing the response received from the web API
     private static Entry[] entriesFromJson(final JSONObject json) throws JSONException {
         // get the JSON array representing all entries (e.g. one entry represents one weather forecast
-        // entry among all weather forecasts)
-        JSONArray obj = new JSONArray(json);
-        JSONArray jsonArray= obj.getJSONArray(Integer.parseInt("list"));
+				// entry among all weather forecasts)
 
+        JSONArray jsonArray = (JSONArray) json.get("list");
 
 
         // allocate the array for all news entries
