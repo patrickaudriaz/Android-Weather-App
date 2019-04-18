@@ -25,12 +25,12 @@ public class NetworkUtils {
 
   private static final String XXX_PARAM = "q=";
   private static final String XXX_APIID = "&APPID=";
-  
+
 	private static final String API_HOST = "http://api.openweathermap.org";
 	private static final String API_PATH = "/data/2.5/forecast";
   private static final String API_KEY = "daeecc1588e9812e4eedc9644d47ee8e";
-  
-  
+
+
   // Retrieves the proper URL to query the web API
 	// if you received query parameters from other parts of the application
 	// you must pass these parameters as arguments to this method
@@ -45,7 +45,7 @@ public class NetworkUtils {
 		try {
 		// build the URL instance based on the Uri instance
 		// and return it to the caller
-      
+
 //      Uri builtUri = Uri.parse(API_HOST);
 //
 //      builtUri.buildUpon()
@@ -53,7 +53,7 @@ public class NetworkUtils {
 //              .appendQueryParameter(XXX_PARAM, location)
 //              .appendQueryParameter(XXX_APIID, API_KEY)
 //              .build();
-			
+
 			Uri.Builder builder = new Uri.Builder();
 			builder.scheme("http")
 							.authority("api.openweathermap.org")
@@ -63,11 +63,11 @@ public class NetworkUtils {
 							.appendQueryParameter("q", location)
 							.appendQueryParameter("APPID", "daeecc1588e9812e4eedc9644d47ee8e");
 			String myUrl = builder.build().toString();
-			
+
       URL builtUrl = new URL(myUrl);
-			
+
 			Log.d("BuiltURL: ", myUrl);
-      
+
 			return builtUrl;
 		}
 		catch (MalformedURLException e) {
