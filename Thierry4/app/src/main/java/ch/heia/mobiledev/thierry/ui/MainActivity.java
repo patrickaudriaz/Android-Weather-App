@@ -25,7 +25,6 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import ch.heia.mobiledev.thierry.R;
-import ch.heia.mobiledev.thierry.data.network.FetchAsyncTask;
 import ch.heia.mobiledev.thierry.data.network.NetworkUtils;
 
 public class MainActivity extends AppCompatActivity
@@ -51,7 +50,7 @@ public class MainActivity extends AppCompatActivity
 			}
 
 			TextView jsonTest = findViewById(R.id.jsonTest);
-			jsonTest.setText(FetchAsyncTask.doInBackground().toString());
+			jsonTest.setText(NetworkUtils.getUrl().toString());
 
 			DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
 			ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
