@@ -11,10 +11,10 @@ import android.view.MenuItem;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.google.android.material.navigation.NavigationView;
 
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Objects;
@@ -40,47 +40,49 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+			super.onCreate(savedInstanceState);
+			setContentView(R.layout.activity_main);
+			Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+			setSupportActionBar(toolbar);
 
-        if (savedInstanceState != null) {
-            toolbar.setTitle(savedInstanceState.getString("location"));
-        }
-        URL BuiltURL = NetworkUtils.getUrl();
-	
-				DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.addDrawerListener(toggle);
-        toggle.syncState();
+			if (savedInstanceState != null) {
+					toolbar.setTitle(savedInstanceState.getString("location"));
+			}
 
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
-        navigationView.setNavigationItemSelectedListener(this);
+			TextView jsonTest = findViewById(R.id.jsonTest);
+			jsonTest.setText(NetworkUtils.getUrl().toString());
 
-        listView = (ListView)findViewById(R.id.listview_body);
+			DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+			ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+							this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+			drawer.addDrawerListener(toggle);
+			toggle.syncState();
 
-        // Create and populate a List of planet names.
-        String[] planets = new String[] { "Mercury", "Venus", "Earth", "Mars",
-                "Jupiter", "Saturn", "Uranus", "Neptune"};
-        ArrayList<String> planetList = new ArrayList<String>();
-        planetList.addAll( Arrays.asList(planets) );
+			NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+			navigationView.setNavigationItemSelectedListener(this);
 
-        // Create ArrayAdapter using the planet list.
-        listAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, planetList);
+			listView = (ListView)findViewById(R.id.listview_body);
 
-        // Add more planets. If you passed a String[] instead of a List<String>
-        // into the ArrayAdapter constructor, you must not add more items.
-        // Otherwise an exception will occur.
-        listAdapter.add( "Ceres" );
-        listAdapter.add( "Pluto" );
-        listAdapter.add( "Haumea" );
-        listAdapter.add( "Makemake" );
-        listAdapter.add( "Eris" );
+			// Create and populate a List of planet names.
+			String[] planets = new String[] { "Mercury", "Venus", "Earth", "Mars",
+							"Jupiter", "Saturn", "Uranus", "Neptune"};
+			ArrayList<String> planetList = new ArrayList<String>();
+			planetList.addAll( Arrays.asList(planets) );
 
-        // Set the ArrayAdapter as the ListView's adapter.
-        listView.setAdapter( listAdapter );
+			// Create ArrayAdapter using the planet list.
+			listAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, planetList);
+
+			// Add more planets. If you passed a String[] instead of a List<String>
+			// into the ArrayAdapter constructor, you must not add more items.
+			// Otherwise an exception will occur.
+			listAdapter.add( "Ceres" );
+			listAdapter.add( "Pluto" );
+			listAdapter.add( "Haumea" );
+			listAdapter.add( "Makemake" );
+			listAdapter.add( "Eris" );
+
+			// Set the ArrayAdapter as the ListView's adapter.
+			listView.setAdapter( listAdapter );
     }
 
     @Override
