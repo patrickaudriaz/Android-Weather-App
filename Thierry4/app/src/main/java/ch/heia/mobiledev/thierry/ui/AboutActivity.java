@@ -2,17 +2,18 @@ package ch.heia.mobiledev.thierry.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
-import androidx.core.app.NavUtils;
 import android.util.Log;
-import com.google.android.material.navigation.NavigationView;
-import androidx.core.view.GravityCompat;
-import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.appcompat.app.ActionBarDrawerToggle;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.google.android.material.navigation.NavigationView;
+
+import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.app.NavUtils;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 import ch.heia.mobiledev.thierry.R;
 
 public class AboutActivity extends AppCompatActivity
@@ -78,11 +79,11 @@ public class AboutActivity extends AppCompatActivity
 
         if (id == R.id.nav_settings) {
             Log.d(TAG, "---> Button \"nav_settings\" clicked");
-            Intent intent = new Intent(this, SettingsActivity.class);
+            Intent intent = new Intent(this, ch.heia.mobiledev.thierry.ui.SettingsActivity.class);
             startActivity(intent);
         } else if (id == R.id.nav_about) {
             Log.d(TAG, "---> Button \"nav_about\" clicked");
-            Intent intent = new Intent(this, AboutActivity.class);
+            Intent intent = new Intent(this, ch.heia.mobiledev.thierry.ui.AboutActivity.class);
             startActivity(intent);
         } else if(id == R.id.nav_home){
             NavUtils.navigateUpFromSameTask(this);

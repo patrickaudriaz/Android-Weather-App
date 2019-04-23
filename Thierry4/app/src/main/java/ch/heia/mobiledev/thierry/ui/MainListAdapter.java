@@ -1,4 +1,4 @@
-package ch.heia.mobiledev.thierry.ui;
+/*package ch.heia.mobiledev.thierry.ui;
 
 import android.content.Context;
 import androidx.annotation.LayoutRes;
@@ -76,3 +76,4 @@ public class MainListAdapter extends ArrayAdapter<String> {
         return convertView;
     }
 }
+*/

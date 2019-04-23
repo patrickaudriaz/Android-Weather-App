@@ -7,12 +7,6 @@
     android:orientation="vertical"
     tools:showIn="@layout/app_bar_main">
 
-    <TextView
-        android:id="@+id/jsonTest"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/app_name" />
-
     <ListView
         android:id="@+id/listview_body"
         android:layout_width="match_parent"
