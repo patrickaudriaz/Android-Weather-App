@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="search_city_view_width">300dp</dimen>
+    <dimen name="search_city_result_width">300dp</dimen>
+    <dimen name="search_city_result_height">420dp</dimen>
+    <dimen name="main_weather_picture_width">220dp</dimen>
+    <dimen name="main_weather_picture_height">220dp</dimen>
+    <dimen name="main_weather_day_name_size">36sp</dimen>
+    <dimen name="main_info_margin">12dp</dimen>
+    <item name="main_info_horizontal_bias" type="dimen" format="float">0.10</item>
+</resources>
