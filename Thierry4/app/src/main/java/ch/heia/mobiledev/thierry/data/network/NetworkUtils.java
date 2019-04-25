@@ -10,7 +10,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Scanner;
 
-public class NetworkUtils {
+class NetworkUtils {
 	// data members
 	// for logging
 	private static final String TAG = NetworkUtils.class.getSimpleName();

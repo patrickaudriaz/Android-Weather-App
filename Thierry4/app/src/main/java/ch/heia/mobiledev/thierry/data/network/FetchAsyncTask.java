@@ -26,13 +26,11 @@ public class FetchAsyncTask extends AsyncTask<Void, Void, Response> {
   // for observation of the results by the owner of the instance of FetchAsyncTask
   // the observation mechanism uses LiveData
 	
-	AppCompatActivity context;
-	ListView contentList;
-	String city;
+	private final AppCompatActivity context;
+	private final ListView contentList;
+	private final String city;
 
-	private ArrayAdapter<String> listAdapter;
-  
-  private final MutableLiveData<Response> mResponse = new MutableLiveData<>();
+	private final MutableLiveData<Response> mResponse = new MutableLiveData<>();
   private Response response;
 
     // constructor
@@ -108,21 +106,19 @@ public class FetchAsyncTask extends AsyncTask<Void, Void, Response> {
 		//String[] planets = new String[] { "Mercury", "Venus", "Earth", "Mars",
 		//				"Jupiter", "Saturn", "Uranus", "Neptune"};
 
-		ArrayList<String> weatherList = new ArrayList<String>();
-
 		//weatherList.addAll( Arrays.asList(planets) );
 
-		weatherList.addAll(Arrays.asList(measures));
+		ArrayList<String> weatherList = new ArrayList<>(Arrays.asList(measures));
 
 		// Create ArrayAdapter using the planet list.
-		listAdapter = new ArrayAdapter<String>(context, android.R.layout.simple_list_item_1, weatherList);
+		ArrayAdapter<String> listAdapter = new ArrayAdapter<>(context, android.R.layout.simple_list_item_1, weatherList);
 	
 		// Add more planets. If you passed a String[] instead of a List<String>
 		// into the ArrayAdapter constructor, you must not add more items.
 		// Otherwise an exception will occur.
 	
 		// Set the ArrayAdapter as the ListView's adapter.
-		this.contentList.setAdapter( listAdapter );
+		this.contentList.setAdapter(listAdapter);
 
   }
 }

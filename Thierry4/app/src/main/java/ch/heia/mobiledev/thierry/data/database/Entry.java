@@ -6,16 +6,16 @@ public class Entry {
   // each data member/field represents a field in each piece of data
   // received from the web API
   // choose the appropriate modifiers for each field
-  float temp;
-  float tempMin;
-  float tempMax;
-  float press;
-  float wind;
-  float hum;
-  String main;
-  String desc;
-  String icon;
-  String date;
+	private float temp;
+  private float tempMin;
+  private float tempMax;
+  private float press;
+  private final float wind;
+  private float hum;
+  private String main;
+  private String desc;
+  private String icon;
+  private String date;
 
 
   // constructor

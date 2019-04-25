@@ -6,7 +6,7 @@ import org.json.JSONObject;
 
 import ch.heia.mobiledev.thierry.data.database.Entry;
 
-public class JsonParser {
+class JsonParser {
 	// data members
 	// define constant strings used for parsing the JSON response received from the web API
 	String LOCAL;
@@ -36,7 +36,7 @@ public class JsonParser {
 		// get the JSON array representing all entries (e.g. one entry represents one weather forecast
 		// entry among all weather forecasts)
 
-		JSONArray forecast = (JSONArray) json.getJSONArray("list");
+		JSONArray forecast = json.getJSONArray("list");
 
 		// allocate the array for all news entries
 		Entry[] entries = new Entry[forecast.length()];
@@ -72,8 +72,4 @@ public class JsonParser {
 		return entries;
 	}
 
-	// this method returns one entry instance for a specific JSON object
-	private static Entry entryFromJson(final JSONObject jsonEntry) throws JSONException {
-			return null;
-	}
 }

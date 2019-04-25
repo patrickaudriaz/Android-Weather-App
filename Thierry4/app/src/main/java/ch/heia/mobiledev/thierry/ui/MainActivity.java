@@ -1,7 +1,6 @@
 package ch.heia.mobiledev.thierry.ui;
 
 import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.InputType;
@@ -31,7 +30,7 @@ public class MainActivity extends AppCompatActivity
     private Toolbar myToolbar;
     // used for logging
     private static final String TAG = "MainActivity";
-    String city = "Fribourg";
+    private String city = "Fribourg";
 
 	private ListView listView;
     private ArrayAdapter<String> listAdapter;
@@ -40,11 +39,9 @@ public class MainActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
 			super.onCreate(savedInstanceState);
 			setContentView(R.layout.activity_main);
-			Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+			Toolbar toolbar = findViewById(R.id.toolbar);
 			setSupportActionBar(toolbar);
 
-			myToolbar = (Toolbar) findViewById(R.id.toolbar);
-			setSupportActionBar(myToolbar);
 			Objects.requireNonNull(getSupportActionBar()).setTitle(city);
 
 			if (savedInstanceState != null) {
@@ -57,19 +54,19 @@ public class MainActivity extends AppCompatActivity
 			FetchAsyncTask asyncTask = new FetchAsyncTask(this, mainContent, city);
 			asyncTask.execute();
 
-			DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+			DrawerLayout drawer = findViewById(R.id.drawer_layout);
 			ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
 							this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
 			drawer.addDrawerListener(toggle);
 			toggle.syncState();
 
-			NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+			NavigationView navigationView = findViewById(R.id.nav_view);
 			navigationView.setNavigationItemSelectedListener(this);
     }
 
     @Override
     public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
@@ -84,7 +81,7 @@ public class MainActivity extends AppCompatActivity
         return true;
     }
 
-    public void reload(){
+    private void reload(){
 			this.recreate();
 		}
 
@@ -95,8 +92,7 @@ public class MainActivity extends AppCompatActivity
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.nav_bar_search) {
+			if (id == R.id.nav_bar_search) {
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
             builder.setTitle("Rechercher une ville");
 
@@ -107,24 +103,16 @@ public class MainActivity extends AppCompatActivity
             builder.setView(input);
 
             // Set up the buttons
-            builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialog, int which) {
-                    search = input.getText().toString();
-                    city = search;
-                    Log.d(TAG, "----> " + search);
-                    myToolbar = (Toolbar) findViewById(R.id.toolbar);
-                    setSupportActionBar(myToolbar);
-                    Objects.requireNonNull(getSupportActionBar()).setTitle(search);
-										reload();
-                }
-            });
-            builder.setNegativeButton("Annuler", new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialog, int which) {
-                    dialog.cancel();
-                }
-            });
+            builder.setPositiveButton("OK", (dialog, which) -> {
+								search = input.getText().toString();
+								city = search;
+								Log.d(TAG, "----> " + search);
+								myToolbar = findViewById(R.id.toolbar);
+								setSupportActionBar(myToolbar);
+								Objects.requireNonNull(getSupportActionBar()).setTitle(search);
+								reload();
+						});
+            builder.setNegativeButton("Annuler", (dialog, which) -> dialog.cancel());
 
 					builder.show();
 
@@ -160,7 +148,7 @@ public class MainActivity extends AppCompatActivity
         } else if(id == R.id.nav_home){
         }
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }

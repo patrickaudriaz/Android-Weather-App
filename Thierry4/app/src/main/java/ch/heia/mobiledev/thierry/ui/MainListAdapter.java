@@ -11,9 +11,8 @@ import android.widget.ArrayAdapter;
 import android.widget.TextView;
 import ch.heia.mobiledev.thierry.R;
 import ch.heia.mobiledev.thierry.data.network.Response;
-import ch.heia.mobiledev.thierry.data.database.Entry;
 
-public class MainListAdapter extends ArrayAdapter<String> {
+class MainListAdapter extends ArrayAdapter<String> {
     // data members
     private Response mResponse = null;
 

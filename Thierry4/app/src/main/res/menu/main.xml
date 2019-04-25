@@ -7,14 +7,13 @@
 
     <item
         android:id="@+id/nav_bar_search"
-        android:title="Search"
         android:icon="@drawable/ic_search"
-        app:showAsAction="always" />
+        android:title="@string/search"
+        app:showAsAction="ifRoom" />
 
     <item
         android:id="@+id/menu_refresh"
-        android:title="Refresh"
         android:icon="@drawable/menu_refresh"
-        app:showAsAction="always"
-        />
+        android:title="@string/refresh"
+        app:showAsAction="always" />
 </menu>
