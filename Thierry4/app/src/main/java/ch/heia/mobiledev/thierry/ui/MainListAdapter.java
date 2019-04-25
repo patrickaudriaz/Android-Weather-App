@@ -1,4 +1,4 @@
-/*package ch.heia.mobiledev.thierry.ui;
+package ch.heia.mobiledev.thierry.ui;
 
 import android.content.Context;
 import androidx.annotation.LayoutRes;
@@ -67,13 +67,12 @@ public class MainListAdapter extends ArrayAdapter<String> {
             viewHolder = (ViewHolder) convertView.getTag();
         }
 
-        viewHolder.temp.setText(mResponse.getEntry(position).getTemp());
-        viewHolder.hum.setText(mResponse.getEntry(position).getHum());
-        viewHolder.pres.setText(mResponse.getEntry(position).getPres());
-        viewHolder.wind.setText(mResponse.getEntry(position).getWind());
-        viewHolder.time.setText(mResponse.getEntry(position).getTime());
+        viewHolder.temp.setText((int) mResponse.getEntry(position).getTemp());
+        //viewHolder.hum.setText(mResponse.getEntry(position).getHum());
+        //viewHolder.pres.setText(mResponse.getEntry(position).getPres());
+        viewHolder.wind.setText((int) mResponse.getEntry(position).getWind());
+        //viewHolder.time.setText(mResponse.getEntry(position).getTime());
 
         return convertView;
     }
 }
-*/

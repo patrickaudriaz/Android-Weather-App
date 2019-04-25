@@ -31,8 +31,9 @@ public class MainActivity extends AppCompatActivity
     private Toolbar myToolbar;
     // used for logging
     private static final String TAG = "MainActivity";
+    String city = "Fribourg";
 
-    private ListView listView;
+	private ListView listView;
     private ArrayAdapter<String> listAdapter;
 
     @Override
@@ -42,13 +43,18 @@ public class MainActivity extends AppCompatActivity
 			Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
 			setSupportActionBar(toolbar);
 
+			myToolbar = (Toolbar) findViewById(R.id.toolbar);
+			setSupportActionBar(myToolbar);
+			Objects.requireNonNull(getSupportActionBar()).setTitle(city);
+
 			if (savedInstanceState != null) {
 				toolbar.setTitle(savedInstanceState.getString("location"));
+				city = savedInstanceState.getString("location");
 			}
 	
 	 		ListView mainContent = findViewById(R.id.listview_body);
-			
-			FetchAsyncTask asyncTask = new FetchAsyncTask(this, mainContent);
+
+			FetchAsyncTask asyncTask = new FetchAsyncTask(this, mainContent, city);
 			asyncTask.execute();
 
 			DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -78,6 +84,10 @@ public class MainActivity extends AppCompatActivity
         return true;
     }
 
+    public void reload(){
+			this.recreate();
+		}
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
@@ -101,11 +111,12 @@ public class MainActivity extends AppCompatActivity
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
                     search = input.getText().toString();
+                    city = search;
                     Log.d(TAG, "----> " + search);
                     myToolbar = (Toolbar) findViewById(R.id.toolbar);
                     setSupportActionBar(myToolbar);
                     Objects.requireNonNull(getSupportActionBar()).setTitle(search);
-
+										reload();
                 }
             });
             builder.setNegativeButton("Annuler", new DialogInterface.OnClickListener() {
@@ -115,15 +126,20 @@ public class MainActivity extends AppCompatActivity
                 }
             });
 
-            builder.show();
-        }
+					builder.show();
+
+				}
+
+			if (id == R.id.menu_refresh) {
+				reload();
+			}
 
         return super.onOptionsItemSelected(item);
     }
 
     @Override
     protected void onSaveInstanceState(Bundle savedInstanceState) {
-        savedInstanceState.putString("location", getSupportActionBar().getTitle().toString());
+        savedInstanceState.putString("location", city);
         super.onSaveInstanceState(savedInstanceState);
     }
 

@@ -16,6 +16,7 @@ public class Response {
   public Entry[] getEntries() {
     return mEntries;
   }
+
   public Entry getEntry(int index) {
     return mEntries[index];
   }

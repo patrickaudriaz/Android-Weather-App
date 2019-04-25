@@ -38,7 +38,6 @@ public class JsonParser {
 
 		JSONArray forecast = (JSONArray) json.getJSONArray("list");
 
-
 		// allocate the array for all news entries
 		Entry[] entries = new Entry[forecast.length()];
 		
@@ -52,25 +51,25 @@ public class JsonParser {
 			JSONObject currentWeather = weatherArr.getJSONObject(0);
 			
 			// from this JSON object get the entry
-			float temp = Float.parseFloat(mainData.getString("temp"));
-			float tempMin = Float.parseFloat(mainData.getString("tempMin"));
-			float tempMax = Float.parseFloat(mainData.getString("tempMax"));
-			float press = Float.parseFloat(mainData.getString("press"));
-			float wind = Float.parseFloat(windSpeed.getString("wind"));
+			float temp = Float.parseFloat(mainData.getString("temp"))- 273;
+			float tempMin = Float.parseFloat(mainData.getString("temp_min")) - 273;
+			float tempMax = Float.parseFloat(mainData.getString("temp_max"))- 273;
+			float press = Float.parseFloat(mainData.getString("pressure"));
+			float wind = Float.parseFloat(windSpeed.getString("speed"));
 			
-			int humid = Integer.parseInt(mainData.getString("humid"));
+			int humid = Integer.parseInt(mainData.getString("humidity"));
 
 			String main = currentWeather.getString("main");
-			String desc = currentWeather.getString("desc");
+			String desc = currentWeather.getString("description");
 			String icon = currentWeather.getString("icon");
-			String date = day.getString("date");
+			String date = day.getString("dt_txt");
 
 			Entry dayEntry = new Entry(temp,tempMin,tempMax,press,wind,humid,main,desc,icon,date);
 			entries[i] = dayEntry;
 		}
 
 		// return the array of entries
-		return null;
+		return entries;
 	}
 
 	// this method returns one entry instance for a specific JSON object

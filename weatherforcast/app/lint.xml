@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<lint>
+    <issue id="UnusedResources">
+        <ignore path="src/main/res/drawable-xxhdpi/w11d.png" />
+        <ignore path="src/main/res/drawable-xxxhdpi/w10d.png" />
+    </issue>
+</lint>

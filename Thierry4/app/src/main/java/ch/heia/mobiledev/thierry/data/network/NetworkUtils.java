@@ -36,8 +36,8 @@ public class NetworkUtils {
   // Retrieves the proper URL to query the web API
 	// if you received query parameters from other parts of the application
 	// you must pass these parameters as arguments to this method
-	public static URL getUrl() {
-		return buildUrlWithQueryParameters("Fribourg,ch");
+	public static URL getUrl(String city) {
+		return buildUrlWithQueryParameters(city);
 	}
 
 	// Build the url for specific query parameters
