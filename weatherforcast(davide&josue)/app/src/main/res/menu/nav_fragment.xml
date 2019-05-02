@@ -4,21 +4,6 @@
         android:id="@+id/search_city_dest"
         android:title="@string/search_city" />
     <item
-        android:id="@+id/city_mgt"
-        android:title="@string/city_management" />
-    <item
-        android:id="@+id/Sion"
-        android:checkable="true"
-        android:enabled="true"
-        android:icon="@android:drawable/btn_dialog"
-        android:title="@string/sion"
-        android:visible="true" />
-    <item
-        android:id="@+id/fribourg"
-        android:checkable="true"
-        android:title="@string/fribourg"
-        android:visible="false" />
-    <item
         android:id="@+id/settings_dest"
         android:icon="@android:drawable/ic_menu_preferences"
         android:title="@string/settings" />

@@ -1,5 +1,6 @@
 package ch.heia.mobiledev.weatherForecast.ui;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.view.MenuItem;
 
@@ -18,10 +19,12 @@ import ch.heia.mobiledev.weatherForecast.R;
 
 public class MainActivity extends AppCompatActivity {
     private AppBarConfiguration mAppBarConfig = null;
+    private static Context context;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        context = getApplicationContext();
         setContentView(R.layout.activity_main);
 
         NavHostFragment host = (NavHostFragment) getSupportFragmentManager().findFragmentById(R.id.host_fragment);
@@ -35,12 +38,19 @@ public class MainActivity extends AppCompatActivity {
         setupNavigationMenu(navController);
         setupActionBar(mAppBarConfig, navController);
 
+
         AndroidThreeTen.init(this);
+    }
+
+
+
+    public static Context getAppContext() {
+        return context;
     }
 
     private void setupNavigationMenu(NavController navController) {
         NavigationView view = findViewById(R.id.nav_view);
-        view.getMenu().add("Test");
+        //view.getMenu().add("Test");
         NavigationUI.setupWithNavController(view, navController);
     }
 

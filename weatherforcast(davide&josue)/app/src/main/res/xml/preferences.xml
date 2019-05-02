@@ -6,7 +6,7 @@
         <ListPreference
             android:entries="@array/cache_duration"
             android:entryValues="@array/cache_duration_val"
-            android:key="cache_duration"
+            android:key="cache_duration_list"
             android:summary="How long the fetched data considered as valid"
             android:title="Cache duration" />
     </PreferenceCategory>
@@ -42,4 +42,13 @@
             android:summary="Show the minimum and the maximum of the temperature"
             android:title="Temperature min/max" />
     </PreferenceCategory>
+    <PreferenceCategory
+        android:title="City">
+        <EditTextPreference
+            android:key="city_displayed"
+            android:title="City displayed" />
+    </PreferenceCategory>
+
+
+
 </androidx.preference.PreferenceScreen>

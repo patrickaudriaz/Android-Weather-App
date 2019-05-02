@@ -37,6 +37,7 @@ public class StartFragment extends Fragment {
     private AdapterForRecyclerView mAdapterDays;
     private int selectedDayWeather;
     private int daysToShow = 0;
+    private static int cityId = 7285870; // id of fribourg
 
     public StartFragment() {
         // Required empty public constructor
@@ -63,7 +64,7 @@ public class StartFragment extends Fragment {
         scrollViewDay.setAdapter(mAdapterDays);
 
         MainViewModel model = ViewModelProviders.of(Objects.requireNonNull(getActivity())).get(MainViewModel.class);
-        model.fetchData(this, "Fribourg");
+        model.fetchData(this, cityId);
         model.getResponse().observe(this, this::updateWeatherView);
         return view;
     }
@@ -121,6 +122,7 @@ public class StartFragment extends Fragment {
             tempMin.setText("");
             tempMax.setText("");
         }
+
         StartFragment.setWeatherPicture(entry.getIcon(), image, Objects.requireNonNull(getContext()));
     }
 
@@ -152,5 +154,9 @@ public class StartFragment extends Fragment {
         today = today.plusDays(daysToShow);
         Log.d("StartFragment", today.toString());
         return entry.getDate().contains(today.toString());
+    }
+
+    public void setCityId(int id){
+        cityId = id;
     }
 }

@@ -14,10 +14,10 @@ public class FetchAsyncTask extends AsyncTask<Void, Void, Response> {
     // for observation of the results by the owner of the instance of FetchAsyncTask
     // the observation mechanism uses LiveData
     private final MutableLiveData<Response> mResponse = new MutableLiveData<>();
-    private final String city;
+    private final int city;
 
     // constructor
-    public FetchAsyncTask(String city) {
+    public FetchAsyncTask(int city) {
         super();
         this.city = city;
     }

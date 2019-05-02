@@ -17,26 +17,26 @@ class NetworkUtils {
     private static final String API_HOST = "https://api.openweathermap.org";
     private static final String API_PATH = "/data/2.5/forecast";
 
-    private static final String CITY_PARAM = "q";
+    private static final String CITY_PARAM = "id";
     private static final String API_KEY = "appid";
 
 
     // Retrieves the proper URL to query the web API
     // if you received query parameters from other parts of the application
     // you must pass these parameters as arguments to this method
-    static URL getUrl(String city) {
+    static URL getUrl(int city) {
         return buildUrlWithQueryParameters(city);
     }
 
     // Build the url for specific query parameters
-    private static URL buildUrlWithQueryParameters(String city) {
+    private static URL buildUrlWithQueryParameters(int city) {
         // use the Uri class for building the uri to be used
         // (using parse()/buildUpon()/appendXXX() methods)
 
         Uri uri = Uri.parse(API_HOST)
                 .buildUpon()
                 .path(API_PATH)
-                .appendQueryParameter(CITY_PARAM, city)
+                .appendQueryParameter(CITY_PARAM, Integer.toString(city))
                 .appendQueryParameter(API_KEY, "c6f45040a15c88e03a0a7638bb1ccaef")
                 .build();
 
