@@ -13,7 +13,6 @@ import java.util.Scanner;
 class NetworkUtils {
 	// data members
 	// for logging
-	private static final String TAG = NetworkUtils.class.getSimpleName();
 
 	// constant strings that are URL related
 	// the defininition depends on each web API
@@ -36,7 +35,7 @@ class NetworkUtils {
   // Retrieves the proper URL to query the web API
 	// if you received query parameters from other parts of the application
 	// you must pass these parameters as arguments to this method
-	public static URL getUrl(String city) {
+	static URL getUrl(String city) {
 		return buildUrlWithQueryParameters(city);
 	}
 

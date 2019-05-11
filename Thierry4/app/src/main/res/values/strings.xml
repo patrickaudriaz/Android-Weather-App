@@ -23,4 +23,6 @@
     <string name="kelvin">Temperature in Kelvin</string>
     <string name="search">Search</string>
     <string name="refresh">Refresh</string>
+    <string name="use_kelvin">No</string>
+
 </resources>

@@ -7,7 +7,6 @@ import android.text.InputType;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
 
@@ -15,6 +14,7 @@ import com.google.android.material.navigation.NavigationView;
 
 import java.util.Objects;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -32,9 +32,6 @@ public class MainActivity extends AppCompatActivity
     private static final String TAG = "MainActivity";
     private String city = "Fribourg";
 
-	private ListView listView;
-    private ArrayAdapter<String> listAdapter;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 			super.onCreate(savedInstanceState);
@@ -43,7 +40,9 @@ public class MainActivity extends AppCompatActivity
 			setSupportActionBar(toolbar);
 
 			Objects.requireNonNull(getSupportActionBar()).setTitle(city);
-
+			
+			Log.d("debug", "use_kelvin is set to \"" + this.getResources().getString(R.string.use_kelvin) + "\".");
+			
 			if (savedInstanceState != null) {
 				toolbar.setTitle(savedInstanceState.getString("location"));
 				city = savedInstanceState.getString("location");
@@ -109,6 +108,7 @@ public class MainActivity extends AppCompatActivity
 								Log.d(TAG, "----> " + search);
 								myToolbar = findViewById(R.id.toolbar);
 								setSupportActionBar(myToolbar);
+								
 								Objects.requireNonNull(getSupportActionBar()).setTitle(search);
 								reload();
 						});
@@ -118,9 +118,7 @@ public class MainActivity extends AppCompatActivity
 
 				}
 
-			if (id == R.id.menu_refresh) {
-				reload();
-			}
+			if (id == R.id.menu_refresh) reload();
 
         return super.onOptionsItemSelected(item);
     }
@@ -130,11 +128,11 @@ public class MainActivity extends AppCompatActivity
         savedInstanceState.putString("location", city);
         super.onSaveInstanceState(savedInstanceState);
     }
-
-    @SuppressWarnings("StatementWithEmptyBody")
-    @Override
-    public boolean onNavigationItemSelected(MenuItem item) {
+	
+	@Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         // Handle navigation view item clicks here.
+				// This being the main activity itself, pressing the "home" button just closes the panel
         int id = item.getItemId();
 
         if (id == R.id.nav_settings) {
@@ -145,7 +143,6 @@ public class MainActivity extends AppCompatActivity
             Log.d(TAG, "---> Button \"nav_about\" clicked");
             Intent intent = new Intent(this, ch.heia.mobiledev.thierry.ui.AboutActivity.class);
             startActivity(intent);
-        } else if(id == R.id.nav_home){
         }
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);

@@ -8,6 +8,7 @@ import android.view.MenuItem;
 
 import com.google.android.material.navigation.NavigationView;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -61,26 +62,22 @@ public class AboutActivity extends AppCompatActivity
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
 
         return super.onOptionsItemSelected(item);
     }
 
     @Override
-    public boolean onNavigationItemSelected(MenuItem item) {
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         // Handle navigation view item clicks here.
+				// This being the about activity itself, pressing the "about" button just closes the panel
         int id = item.getItemId();
 
         if (id == R.id.nav_settings) {
             Log.d(TAG, "---> Button \"nav_settings\" clicked");
             Intent intent = new Intent(this, ch.heia.mobiledev.thierry.ui.SettingsActivity.class);
             startActivity(intent);
-        } else if (id == R.id.nav_about) {
-            Log.d(TAG, "---> Button \"nav_about\" clicked");
-            Intent intent = new Intent(this, ch.heia.mobiledev.thierry.ui.AboutActivity.class);
-            startActivity(intent);
-        } else if(id == R.id.nav_home){
+        }
+        else if(id == R.id.nav_home){
             NavUtils.navigateUpFromSameTask(this);
         }
 

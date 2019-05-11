@@ -58,7 +58,7 @@ public class FetchAsyncTask extends AsyncTask<Void, Void, Response> {
   public Response doInBackground(Void... voids) {
     try {
         String APIResponse = NetworkUtils.getResponseFromHttpUrl(NetworkUtils.getUrl(city));
-        response = JsonParser.parse(APIResponse);
+        response = JsonParser.parse(this.context, APIResponse);
 
     } catch (IOException e) {
         e.printStackTrace();
@@ -69,48 +69,48 @@ public class FetchAsyncTask extends AsyncTask<Void, Void, Response> {
     return response;
   }
 
-
+	// When the AsyncTask is done fetching the data from the API, store the data in a list and
+	// display it through the list adapter
   @Override
   protected void onPostExecute(Response response){
     mResponse.setValue(response);
-
-    String[] measures = new String[response.getEntries().length];
-
-    for (int i = 0; i < response.getEntries().length; i++ ) {
-			Entry data = response.getEntry(i);
-			String measure;
-
-			// TEMPERATURE
-			measure = "\n" + (int) data.getTemp() + " °C\n\n";
-
-			// TIME
-			measure  = measure + data.getDate() + "\n" ;
-
-			// DESCRIPTION
-			measure  = measure + data.getDesc() + "\n\n";
-
-			// WIND
-			measure  = measure + "Wind : " + (int) data.getWind() + " m/s\n";
-
-			// PRESSURE
-			measure  = measure + "Pressure : " + (int) data.getPress() + " hpa\n";
-
-			// HUMIDITY
-			measure  = measure + "Humidity : " + (int) data.getHum() + " %\n";
-
-			measures[i] = measure;
+		String[] measures = new String[1];
+		
+		try {
+			measures = new String[response.getEntries().length];
+			
+			for (int i = 0; i < response.getEntries().length; i++ ) {
+				Entry data = response.getEntry(i);
+				String measure;
+				
+				// TEMPERATURE
+				measure = "\n" + (int) data.getTemp() + " °C\n\n";
+				
+				// TIME
+				measure  = measure + data.getDate() + "\n" ;
+				
+				// DESCRIPTION
+				measure  = measure + data.getDesc() + "\n\n";
+				
+				// WIND
+				measure  = measure + "Wind : " + (int) data.getWind() + " m/s\n";
+				
+				// PRESSURE
+				measure  = measure + "Pressure : " + (int) data.getPress() + " hpa\n";
+				
+				// HUMIDITY
+				measure  = measure + "Humidity : " + (int) data.getHum() + " %\n";
+				
+				measures[i] = measure;
+			}
 		}
-
-
-		// Create and populate a List of planet names.
-		//String[] planets = new String[] { "Mercury", "Venus", "Earth", "Mars",
-		//				"Jupiter", "Saturn", "Uranus", "Neptune"};
-
-		//weatherList.addAll( Arrays.asList(planets) );
-
+		catch (NullPointerException e){
+			measures[0] = "ERROR : City not found.";
+		}
+  
+  
 		ArrayList<String> weatherList = new ArrayList<>(Arrays.asList(measures));
 
-		// Create ArrayAdapter using the planet list.
 		ArrayAdapter<String> listAdapter = new ArrayAdapter<>(context, android.R.layout.simple_list_item_1, weatherList);
 	
 		// Add more planets. If you passed a String[] instead of a List<String>
